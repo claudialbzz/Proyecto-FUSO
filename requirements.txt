@@ -1,5 +1,37 @@
-scikit-learn == 1.4.0
-matplotlib == 3.7.2
-seaborn == 0.13.2
-memory_profiler==0.61.0
-pandas == 2.1.3
+# =============================================================================
+# ARCHIVO: requirements.txt
+# DESCRIPCIÓN: Dependencias Python necesarias para el proyecto Flask
+# USO: pip install -r requirements.txt
+# AUTOR: Claudia Maria Lopez Bombin Y Gonzalo Velasco Lucas
+# FECHA: Noviembre 2025
+# =============================================================================
+
+# Framework web para la aplicación
+Flask==2.3.3
+
+# Machine learning y preprocessing de datos
+scikit-learn==1.4.0
+
+# Manipulación y análisis de datos
+pandas==2.1.3
+
+# Cálculos numéricos y algebra lineal
+numpy==1.25.2
+
+# Visualización de datos y gráficas
+matplotlib==3.7.2
+
+# Visualización estadística mejorada
+seaborn==0.13.0
+
+# Profiling de uso de memoria
+memory-profiler==0.61.0
+
+# Serialización y paralelismo
+joblib==1.3.2
+
+# Control de threading para scikit-learn
+threadpoolctl==3.2.0
+
+# Peticiones HTTP para APIs
+requests==2.31.0
