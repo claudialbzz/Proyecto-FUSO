@@ -45,7 +45,7 @@ if ! grep -q "^[^#].*community" /etc/apk/repositories; then
     echo "3. Guarda el archivo y ejecuta este script nuevamente"
     exit 1
 else
-    echo "✓ Repositorio community está habilitado"
+    echo "Repositorio community está habilitado"
 fi
 
 echo ""
@@ -53,14 +53,14 @@ echo "Paso 3: Instalando paquetes necesarios..."
 for package in "${PACKAGES[@]}"; do
     # Verificar si el paquete ya está instalado
     if apk list --installed | grep -q "$package"; then
-        echo "✓ Paquete $package ya está instalado"
+        echo "Paquete $package ya está instalado"
     else
-        echo "📦 Instalando $package..."
+        echo "Instalando $package..."
         apk add "$package"
         if [ $? -eq 0 ]; then
-            echo "✓ $package instalado correctamente"
+            echo "$package instalado correctamente"
         else
-            echo "✗ Error instalando $package"
+            echo "Error instalando $package"
         fi
     fi
 done
@@ -70,9 +70,9 @@ echo "Paso 4: Instalando librerías adicionales..."
 # libc-dev es esencial para compilación de paquetes Python
 apk add libc-dev
 if [ $? -eq 0 ]; then
-    echo "✓ libc-dev instalado correctamente"
+    echo "libc-dev instalado correctamente"
 else
-    echo "✗ Error instalando libc-dev"
+    echo "Error instalando libc-dev"
 fi
 
 echo ""

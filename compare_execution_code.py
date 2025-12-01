@@ -120,9 +120,9 @@ def compare_execution() -> Tuple[float, float]:
         print(f"Eficiencia: {efficiency:.1f}%")
         
         if speedup > 1:
-            print("✓ El procesamiento paralelo es más rápido")
+            print("El procesamiento paralelo es más rápido")
         else:
-            print("✗ El procesamiento secuencial es más rápido (overhead de paralelización)")
+            print("El procesamiento secuencial es más rápido (overhead de paralelización)")
     else:
         print("Error: Tiempo paralelo es 0")
     

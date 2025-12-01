@@ -1,33 +1,26 @@
 import sys
 
 if __name__ == "__main__":
-    archivo=sys.argv[1]
-    n=int(sys.argv[2])
-    archivo_salida=sys.argv[3]
+    archivo = sys.argv[1]
+    n = int(sys.argv[2])
+    archivo_salida = sys.argv[3]
     
-    e=open(archivo,"r")
-    s=open(archivo_salida,"w")
+    dic_usuarios = {}
     
-    dic_usuarios={}
-    for l in e:
-        l=l.strip().split()
-        if l[0] in dic_usuarios:
-            dic_usuarios[l[0]]+=1
-        else:
-            dic_usuarios[l[0]]=0
+    with open(archivo, "r") as e:
+        for l in e:
+            l = l.strip().split()
+            if l:
+                usuario = l[0]
+                if usuario in dic_usuarios:
+                    dic_usuarios[usuario] += 1
+                else:
+                    dic_usuarios[usuario] = 1  # CORRECCIÓN: Inicializar en 1, no en 0
     
-
-    for _ in range(n):
-        maximo=0
-        usuario_max=-1
-        for usuario in dic_usuarios.keys():
-            if dic_usuarios[usuario]>maximo:
-                maximo=dic_usuarios[usuario]
-                usuario_max=usuario
-                dic_usuarios[usuario]=0
-        s.write(f"{usuario_max}  {maximo}\n")
+    # Ordenar usuarios por número de check-ins (descendente)
+    usuarios_ordenados = sorted(dic_usuarios.items(), key=lambda x: x[1], reverse=True)
     
-    e.close()
-    s.close()
-
-
+    with open(archivo_salida, "w") as s:
+        for i in range(min(n, len(usuarios_ordenados))):
+            usuario, count = usuarios_ordenados[i]
+            s.write(f"{usuario} {count}\n")
