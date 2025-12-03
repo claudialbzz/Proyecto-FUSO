@@ -1,3 +1,4 @@
+# generate_individual_maps.py
 import argparse
 import pandas as pd
 from datetime import datetime

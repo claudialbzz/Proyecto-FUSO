@@ -1,3 +1,4 @@
+# generate_maps.py
 import pandas as pd
 import folium
 from folium.plugins import MarkerCluster

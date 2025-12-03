@@ -1,3 +1,5 @@
+# app.py
+# 
 from flask import Flask, request, render_template, send_from_directory
 from src.model import train_and_evaluate, get_dataset_statistics, perform_eda, generate_synthetic_dataset, \
     compare_execution
